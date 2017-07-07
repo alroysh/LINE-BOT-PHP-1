@@ -18,6 +18,14 @@ if (!is_null($events['events'])) {
       {
         $text = "สวัสดี ค่ะ มีอะไรให้รับใช้หรอค่ะ :)";
       }
+      elseif ($text == "ป่าว" or $text == "เปล่า" or $text == "ไม่มีอะไร") 
+      {
+        $text = "ยินดีที่ได้รับใช้ค่ะ :)";
+      }
+      elseif ($text == "ควย" or $text == "พ่อง" or $text == "อีสัส" or $text == "เหี้ย") 
+      {
+        $text = "คุณพูดไม่เพราะเลยนะค่ะ ".$text."";
+      }
       elseif ($text == "ชื่อไร" or $text == "มีชื่อไหม" or $text == "ชื่อ") 
       {
         $text = "ฉันชื่อ Mark I ฉันถูกสร้างโดย mr.capsLock ค่ะ ";
