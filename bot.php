@@ -18,9 +18,17 @@ if (!is_null($events['events'])) {
       {
         $text = "สวัสดี ค่ะ มีอะไรให้รับใช้หรอค่ะ :)";
       }
-      elseif ($text == "ชื่อไร" or $text == "มีชื่อไหม") 
+      elseif ($text == "ชื่อไร" or $text == "มีชื่อไหม" or $text == "ชื่อ") 
       {
-        $text = "ฉันชื่อ Mark I ฉันถูกสร้างโดย mr.capsLock ค่ะ";
+        $text = "ฉันชื่อ Mark I ฉันถูกสร้างโดย mr.capsLock ค่ะ ";
+      }
+      elseif ($text == "ทำไรได้บ้าง" or $text == "ทำไรได้" or $text == "ทำไรเป็น") 
+      {
+        $text = "ตอนนี้ mr.capsLock กำลังพัฒนาให้ ฉันมีความสามารถตอบโต้กลับได้อย่างเดียวค่ะ";
+      }
+      elseif ($text == "ขอบคุณ" or $text == "แต็งกิว" or $text == "ขอบใจ") 
+      {
+        $text = "ยินดีค่ะ ค่ะ";
       }
 
       // Get replyToken
