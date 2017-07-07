@@ -30,6 +30,10 @@ if (!is_null($events['events'])) {
       {
         $text = "ยินดีค่ะ ค่ะ";
       }
+      else
+      {
+        $text = "ขอเวลาเรียนรู้ก่อนนะค่ะ ฉันยังไม่เข้าใจ";
+      }
 
       // Get replyToken
       $replyToken = $event['replyToken'];
