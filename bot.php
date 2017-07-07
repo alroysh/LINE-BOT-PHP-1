@@ -30,6 +30,10 @@ if (!is_null($events['events'])) {
       {
         $text = "ยินดีค่ะ ค่ะ";
       }
+      elseif ($text == "ครับ" or $text == "ค่ะ" or $text == "คะ"  or $text == "อ่า"  or $text == "อื้ม"  or $text == "จ้ะ"  or $text == "จ่ะ") 
+      {
+        $text = "ค่ะ :)";
+      }
       else
       {
         $text = "ขอเวลาเรียนรู้ก่อนนะค่ะ ฉันยังไม่เข้าใจ";
