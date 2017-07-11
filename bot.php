@@ -14,7 +14,7 @@ if (!is_null($events['events'])) {
       // Get text sent
       $text = $event['message']['text'];
 
-      if($text == "สวัสดีครับ" or $text == "สวัสดีค่ะ" or $text == "สวัสดี"){
+     /* if($text == "สวัสดีครับ" or $text == "สวัสดีค่ะ" or $text == "สวัสดี"){
         $text = "สวัสดีค่ะ มีอะไรให้รับใช้หรือคะ :)"
       }
       elseif ($text == "มีครับ" or $text == "มีค่ะ" or $text == "มี") {
@@ -40,7 +40,7 @@ if (!is_null($events['events'])) {
       }
       else{
         $text = "น้องอุ๋งยังเป็นเด็กยังต้องเรียนรู้อีกเยอะ บ้างเรื่องน้องอุ๋งก็ไม่เข้าใจ -.-"
-      }
+      }*/
        // Get replyToken
       $replyToken = $event['replyToken'];
       // Build message to reply back
