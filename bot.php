@@ -48,7 +48,7 @@ elseif (is_null($events['events'])) {
     // Reply only when message sent is in 'text' format
     if ($event['type'] == 'message' && $event['message']['type'] == 'image'){
       // Get text sent
-      $text = $event['image']['id'];
+      $text = $event['message']['id'];
 
       // Get replyToken
       $replyToken = $event['replyToken'];
@@ -85,7 +85,7 @@ elseif (is_null($events['events'])) {
     // Reply only when message sent is in 'text' format
     if ($event['type'] == 'message' && $event['message']['type'] == 'sticker'){
       // Get text sent
-      $text = $event['sticker']['stickerId'];
+      $text = $event['message']['stickerId'];
 
       // Get replyToken
       $replyToken = $event['replyToken'];
