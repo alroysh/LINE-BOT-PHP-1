@@ -14,7 +14,21 @@ if (!is_null($events['events'])) {
       // Get text sent
       $text = $event['message']['text'];
 
-      if($text == "สวัสดี" or $text == "ดีครับ" or $text == "ดี")
+      switch ($text) {
+        case 'สวัสดี':
+          # code...
+          if($text == "สวัสดีครับ" or $text == "ดีครับ" or $text == "ดี")
+          {
+            $text = "สวัสดี ค่ะ มีอะไรให้รับใช้หรอคะ :)";
+          }
+          break;
+        
+        default:
+          # code...
+          break;
+      }
+
+     /* if($text == "สวัสดีครับ" or $text == "ดีครับ" or $text == "ดี")
       {
         $text = "สวัสดี ค่ะ มีอะไรให้รับใช้หรอคะ :)";
       }
@@ -45,7 +59,7 @@ if (!is_null($events['events'])) {
       else
       {
         $text = "ขอเวลาเรียนรู้ก่อนนะค่ะ ฉันยังไม่เข้าใจ";
-      }
+      }*/
 
       // Get replyToken
       $replyToken = $event['replyToken'];
