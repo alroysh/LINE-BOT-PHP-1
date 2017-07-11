@@ -68,16 +68,16 @@ if (!is_null($events['events'])) {
 elseif (is_null($events['events'])) {
   foreach ($events['events'] as $event) {
     // Reply only when message sent is in 'text' format
-    if ($event['type'] == 'image' && $event['image']['type'] == 'text'){
+    if ($event['type'] == 'image' && $event['image']['type'] == 'id'){
       // Get text sent
-      $text = $event['image']['text'];
+      $text = $event['image']['id'];
 
       // Get replyToken
       $replyToken = $event['replyToken'];
       // Build message to reply back
       $messages = [
-        'type' => 'text',
-        'text' => $text
+        'type' => 'id',
+        'id' => $text
       ];
       // Make a POST Request to Messaging API to reply to sender
       $url = 'https://api.line.me/v2/bot/message/reply';
@@ -105,16 +105,16 @@ elseif (is_null($events['events'])) {
 elseif (is_null($events['events'])) {
   foreach ($events['events'] as $event) {
     // Reply only when message sent is in 'text' format
-    if ($event['type'] == 'sticker' && $event['sticker']['type'] == 'text'){
+    if ($event['type'] == 'sticker' && $event['sticker']['type'] == 'id' && $event['sticker']['type'] == 'stickerId' && $event['sticker']['type'] == 'packageId' &&){
       // Get text sent
-      $text = $event['sticker']['text'];
+      $text = $event['sticker']['id'];
 
       // Get replyToken
       $replyToken = $event['replyToken'];
       // Build message to reply back
       $messages = [
-        'type' => 'text',
-        'text' => $text
+        'type' => 'id',
+        'id' => $text
       ];
       // Make a POST Request to Messaging API to reply to sender
       $url = 'https://api.line.me/v2/bot/message/reply';
