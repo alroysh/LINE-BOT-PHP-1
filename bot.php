@@ -68,22 +68,22 @@ if (!is_null($events['events'])) {
 elseif (is_null($events['events'])) {
   foreach ($events['events'] as $event) {
     // Reply only when message sent is in 'text' format
-    if ($event['type'] == 'image' && $event['image']['type'] == 'number'){
+    if ($event['type'] == 'image' && $event['image']['type'] == 'image'){
       // Get text sent
-      $text = $event['image']['number'];
+      $text = $event['image']['image'];
 
       // Get replyToken
       $replyToken = $event['replyToken'];
       // Build message to reply back
       $messages = [
-        'type' => 'number',
-        'number' => $text
+        'type' => 'image',
+        'image' => $text
       ];
       // Make a POST Request to Messaging API to reply to sender
       $url = 'https://api.line.me/v2/bot/message/reply';
       $data = [
         'replyToken' => $replyToken,
-        'number' => [$messages],
+        'messages' => [$messages],
       ];
       $post = json_encode($data);
       $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
