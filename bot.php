@@ -19,7 +19,7 @@ if (!is_null($events['events'])) {
         $content1 = file_get_contents('203.151.143.172/Json/gen_json1.php');
         $events1 = json_decode($content1, true);
         //$text = $events1['tempC'];
-        if (!is_null($events1) {
+        if (!is_null($events1)) {
           $text = 'nown';
         }
       }
