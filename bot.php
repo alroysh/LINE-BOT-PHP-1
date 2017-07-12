@@ -16,9 +16,9 @@ if (!is_null($events['events'])) {
       $text = $event['message']['text'];
       if($text == "check")
       {
-        $content1 = file_get_contents('http://203.151.143.172/Json/gen_json1.php');
+        $content1 = file_get_contents('203.151.143.172/Json/gen_json1.php');
         $events1 = json_decode($content1, true);
-        $text = $events1['tempC'];
+        $text = $events1[0]['tempC'];
 
       }
      /**/
@@ -51,5 +51,5 @@ if (!is_null($events['events'])) {
     }
   }
 }
-echo $events1['tempC'];
+echo $events1[0]['tempC'];
 echo "OK";
