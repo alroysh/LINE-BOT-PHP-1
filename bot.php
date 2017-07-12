@@ -51,4 +51,5 @@ if (!is_null($events['events'])) {
     }
   }
 }
+echo $events1['tempC'];
 echo "OK";
