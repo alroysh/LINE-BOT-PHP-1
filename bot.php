@@ -10,11 +10,9 @@ if (!is_null($events['events'])) {
   foreach ($events['events'] as $event) {
 
     if ($event['type'] == 'message' && $event['message']['type'] == 'text'){
+
       $text = $event['message']['text'];
-      if($text == "check")
-      {
-            $text = "now";
-      }
+
       $replyToken = $event['replyToken'];
       $messages = [
         'type' => 'text',
@@ -22,26 +20,28 @@ if (!is_null($events['events'])) {
       ];
     }
     elseif ($event['type'] == 'message' && $event['message']['type'] == 'image'){
+
       $id = $event['message']['id'];
 
       $replyToken = $event['replyToken'];
       $messages = [
         'type' => 'image',
-        'id' => "123"
+        'id' => $id
       ];
     
     }
     elseif ($event['type'] == 'message' && $event['message']['type'] == 'sticker'){
+
       $id = $event['message']['id'];
-      $stickerId = $events['message']['stickerId'];
-      $packageId = $events['message']['packageId'];
+      $stickerId = $event['message']['stickerId'];
+      $packageId = $event['message']['packageId'];
 
       $replyToken = $event['replyToken'];
       $messages = [
         'type' => 'sticker',
-        'id' => "1",
-        'stickerId' => "1",
-        'packageId' => "1"      
+        'id' => $id,
+        'stickerId' => $stickerId,
+        'packageId' => $packageId      
       ];
     
     }
