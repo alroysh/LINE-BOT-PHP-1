@@ -21,12 +21,14 @@ if (!is_null($events['events'])) {
     }
     elseif ($event['type'] == 'message' && $event['message']['type'] == 'image'){
 
-      $id = $event['message']['id'];
+      $originalContentUrl = $event['message']['originalContentUrl'];
+      $previewImageUrl = $event['message']['previewImageUrl'];
 
       $replyToken = $event['replyToken'];
       $messages = [
         'type' => 'image',
-        'id' => $id
+        'originalContentUrl' => $originalContentUrl,
+        'previewImageUrl' => $previewImageUrl
       ];
     
     }
