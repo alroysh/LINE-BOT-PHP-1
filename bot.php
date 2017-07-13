@@ -2,8 +2,8 @@
 $access_token = '3YxSOfQKva9QC3/swCvMwJwJkdnmbiENnLvM5Qf1tF78RW2z5MZGrNnvH+CapO9xmv9uYCdUUpYuo/MtK5hyYYTlIBVfBxBzhRxMFQwSjb/EqYvnqU2ZkJt2r3n/2+fcLspZqwyf0TJ7EdYGr8TwwAdB04t89/1O/w1cDnyilFU=';
 
 
-//$content = file_get_contents('php://input');
-//$events = json_decode($content, true);
+$content = file_get_contents('php://input');
+$events = json_decode($content, true);
 
 $con = file_get_contents('http://203.151.143.172/Json/gen_json1.php');
 $even = json_decode($con, true);
