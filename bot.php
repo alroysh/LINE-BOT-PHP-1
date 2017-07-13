@@ -3,11 +3,8 @@ $access_token = '3YxSOfQKva9QC3/swCvMwJwJkdnmbiENnLvM5Qf1tF78RW2z5MZGrNnvH+CapO9
 
 // Get POST body content
 $content = file_get_contents('php://input');
-$contents = file_get_contents('http://203.151.143.172/Json/gen_json1.php');
 // Parse JSON
 $events = json_decode($content, true);
-$eventss = json_decode($contents, true);
-
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
   // Loop through each event
@@ -18,14 +15,15 @@ if (!is_null($events['events'])) {
       $text = $event['message']['text'];
       if($text == "check")
       {
-          if(!is_null($eventss))
-          {
-            foreach ($eventss as $value) {
-              if ($value['heatIndexF'] == 80) {
-                 $text = $value['heatIndexF'];
+          $con = file_get_contents('http://203.151.143.172/Json/gen_json1.php');
+          $even = json_decode($con, true);
+      
+            if(!is_null($even['tempC']))
+            { 
+               if($even['tempC'] >= 26) {
+                echo "string";
               }
             }
-          }
       }
        // Get replyToken
       $replyToken = $event['replyToken'];
