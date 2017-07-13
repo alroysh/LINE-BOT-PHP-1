@@ -32,13 +32,13 @@ if (!is_null($events['events'])) {
   
       $messages = [
         'type' => 'image',
-        'id' => $id
+        'id' => "123"
       ];
     
     }
     elseif ($event['type'] == 'message' && $event['message']['type'] == 'sticker'){
 
-      $id = $event['message']['id'];
+      //$id = $event['message']['id'];
       $stickerId = $events['message']['stickerId'];
       $packageId = $events['message']['packageId'];
 
@@ -46,7 +46,6 @@ if (!is_null($events['events'])) {
   
       $messages = [
         'type' => 'sticker',
-        'id' => $id,
         'stickerId' => $stickerId,
         'packageId' => $packageId      
       ];
