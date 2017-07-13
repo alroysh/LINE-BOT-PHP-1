@@ -5,7 +5,13 @@ $access_token = '3YxSOfQKva9QC3/swCvMwJwJkdnmbiENnLvM5Qf1tF78RW2z5MZGrNnvH+CapO9
 $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 
-if (!is_null($events['events'])) {
+if(isset($events)){  
+      $json = json_encode($events); 
+      echo $json;
+}
+
+
+/*if (!is_null($events['events'])) {
 
   foreach ($events['events'] as $event) {
 
@@ -29,7 +35,7 @@ if (!is_null($events['events'])) {
 
     $post = json_encode($data);
     echo $post;
-    
+
     $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 
     $ch = curl_init($url);
@@ -44,7 +50,7 @@ if (!is_null($events['events'])) {
     echo $result . "\r\n";
   }
 }
-
+*/
 
 
 /*if (!is_null($events['events'])) {
