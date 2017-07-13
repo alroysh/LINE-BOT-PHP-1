@@ -19,19 +19,6 @@ if (!is_null($events['events'])) {
         'text' => $text
       ];
     }
-    elseif ($event['type'] == 'message' && $event['message']['type'] == 'image'){
-
-      $originalContentUrl = $event['message']['originalContentUrl'];
-      $previewImageUrl = $event['message']['previewImageUrl'];
-
-      $replyToken = $event['replyToken'];
-      $messages = [
-        'type' => 'image',
-        'originalContentUrl' => $originalContentUrl,
-        'previewImageUrl' => $previewImageUrl
-      ];
-    
-    }
     elseif ($event['type'] == 'message' && $event['message']['type'] == 'sticker'){
 
       $id = $event['message']['id'];
@@ -67,9 +54,7 @@ if (!is_null($events['events'])) {
 
       echo $result . "\r\n";
   }
-  echo "sucess full";
+
 }
-else
-{
-  echo "Fail";
-}
+echo "sucess full";
+
