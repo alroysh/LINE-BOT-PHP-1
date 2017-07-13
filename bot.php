@@ -15,15 +15,7 @@ if (!is_null($events['events'])) {
       $text = $event['message']['text'];
       if($text == "check")
       {
-          $con = file_get_contents('http://203.151.143.172/Json/gen_json1.php');
-          $even = json_decode($con, true);
-      
-            if(!is_null($even['tempC']))
-            { 
-               if($even['tempC'] >= 26) {
-                $text = "string";
-              }
-            }
+            $text = "now";
       }
        // Get replyToken
       $replyToken = $event['replyToken'];
@@ -32,6 +24,41 @@ if (!is_null($events['events'])) {
         'type' => 'text',
         'text' => $text
       ];
+      // Make a POST Request to Messaging API to reply to sender
+      $url = 'https://api.line.me/v2/bot/message/reply';
+      $data = [
+        'replyToken' => $replyToken,
+        'messages' => [$messages],
+      ];
+      $post = json_encode($data);
+      $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+
+      $ch = curl_init($url);
+      curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+      curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+      curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+      $result = curl_exec($ch);
+      curl_close($ch);
+
+      echo $result . "\r\n";
+    }
+    elseif ($event['type'] == 'message' && $event['message']['type'] == 'image'){
+      // Get text sent
+      $text = $event['message']['id'];
+      
+       // Get replyToken
+      $replyToken = $event['replyToken'];
+      // Build message to reply back
+      $messages = [
+        'type' => 'image',
+        'id' => $text
+      ];
+      /*"message" : {
+        "type" : "image",
+        "id" : "563..3851..0(text = id)"
+      }*/
       // Make a POST Request to Messaging API to reply to sender
       $url = 'https://api.line.me/v2/bot/message/reply';
       $data = [
