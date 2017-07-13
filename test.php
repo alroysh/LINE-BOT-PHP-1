@@ -7,6 +7,4 @@ $even = json_decode($con, true);
   {
     print_r($events); 
   }
-
-
  ?>
