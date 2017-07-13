@@ -67,5 +67,9 @@ if (!is_null($events['events'])) {
 
       echo $result . "\r\n";
   }
+  echo "sucess full";
 }
-echo "OK";
+else
+{
+  echo "Fail";
+}
