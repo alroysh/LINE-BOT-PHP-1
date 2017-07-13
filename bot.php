@@ -5,9 +5,7 @@ $access_token = '3YxSOfQKva9QC3/swCvMwJwJkdnmbiENnLvM5Qf1tF78RW2z5MZGrNnvH+CapO9
 $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 
-
-$json = json_decode($events); 
-echo $json;
+echo $events;
 
 
 $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
