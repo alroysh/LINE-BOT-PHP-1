@@ -21,7 +21,7 @@ if (!is_null($events['events'])) {
             if(!is_null($even['tempC']))
             { 
                if($even['tempC'] >= 26) {
-                echo "string";
+                $text = "string";
               }
             }
       }
