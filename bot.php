@@ -45,10 +45,10 @@ if (!is_null($events['events'])) {
       $replyToken = $event['replyToken'];
   
       $messages = [
-        'type' => 'image',
-        'id' => $id,
-        'stickerId' => $stickerId,
-        'packageId' => $packageId
+        'type' => 'sticker',
+        'id' => "1",
+        'stickerId' => "1",
+        'packageId' => "1"      
       ];
     
     }
