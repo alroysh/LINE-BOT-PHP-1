@@ -6,7 +6,7 @@ $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 
 if(isset($events)){  
-      $json = json_encode($events); 
+      $json = json_decode($events); 
       echo $json;
 }
 
