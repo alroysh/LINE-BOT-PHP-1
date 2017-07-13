@@ -26,25 +26,29 @@ if (!is_null($events['events'])) {
     }
     elseif ($event['type'] == 'message' && $event['message']['type'] == 'image'){
 
-      $image = $event['message']['id'];
-      
+      $id = $event['message']['id'];
+    
       $replyToken = $event['replyToken'];
   
       $messages = [
         'type' => 'image',
-        'id' => $image
+        'id' => $id
       ];
     
     }
     elseif ($event['type'] == 'message' && $event['message']['type'] == 'sticker'){
 
-      $sticker = $event['message']['stickerId'];
-      
+      $id = $event['message']['id'];
+      $stickerId = $events['message']['stickerId'];
+      $packageId = $events['message']['packageId'];
+
       $replyToken = $event['replyToken'];
   
       $messages = [
-        'type' => 'sticker',
-        'stickerId' => $sticker
+        'type' => 'image',
+        'id' => $id,
+        'stickerId' => $stickerId,
+        'packageId' => $packageId
       ];
     
     }
