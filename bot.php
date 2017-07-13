@@ -5,6 +5,14 @@ $access_token = '3YxSOfQKva9QC3/swCvMwJwJkdnmbiENnLvM5Qf1tF78RW2z5MZGrNnvH+CapO9
 $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 
+$con = file_get_contents('http://203.151.143.172/Json/gen_json1.php');
+$even = json_decode($con, true);
+
+  if(!is_null($events))
+  {
+    print_r($events); 
+  }
+
 if (!is_null($events['events'])) {
 
   foreach ($events['events'] as $event) {
