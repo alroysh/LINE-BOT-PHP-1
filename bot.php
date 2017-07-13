@@ -14,10 +14,11 @@ if (!is_null($events['events'])) {
 
       $text = $event['message']['text'];
 
-      if($text = "สวัสดี")
+      if($text == "สวัสดี")
       {
 
         $text = "อิอิ";
+      }
 
       $replyToken = $event['replyToken'];
       $messages = [
