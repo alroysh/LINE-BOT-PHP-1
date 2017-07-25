@@ -20,7 +20,7 @@ if (!is_null($events['events'])) {
       }
       else if($text == "ใครสร้างอุ๋งๆ")
       {
-        $text == "อุ๋งๆ ถูกสร้างโดย mr.mach ค่ะ";
+        $text ="อุ๋งๆ ถูกสร้างโดย mr.mach ค่ะ";
       }
       $replyToken = $event['replyToken'];
       $messages = [
