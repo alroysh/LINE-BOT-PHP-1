@@ -6,11 +6,11 @@ $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 
 $contents = file_get_contents('http://949b3eea.ngrok.io/code/node/changdatatojsongraph.php');
-$results = json_decode($contents, true);
+$results = json_encode($contents);
 
 if(isset($results))
 {
-  print_r($results); 
+  echo $results; 
 }
 
 if (!is_null($events['events'])) {
