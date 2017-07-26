@@ -10,11 +10,31 @@ $gen = json_decode($database, true);
 
 if(isset($gen))
 {
-  //print_r($gen); 
-  if($gen['id'] > 0)
+  print_r($gen); 
+  if($gen['humidity'] > 0)
   {
-    $texts = $gen['id'];
-    echo $texts;
+    $Humidity = $gen['humidity'];
+    echo "<br>".$Humidity;
+  }
+  else if($gen['tempC'] > 0)
+  {
+    $tempC = $gen['tempC'];
+    echo "<br>".$tempC;
+  }
+  else if($gen['tempF'] > 0)
+  {
+    $tempF = $gen['tempF'];
+    echo "<br>".$tempF;
+  }
+  else if($gen['heatIndexC'] > 0)
+  {
+    $heatIndexC = $gen['heatIndexC'];
+    echo "<br>".$heatIndexC;
+  }
+  else if($gen['heatIndexF'] > 0)
+  {
+    $heatIndexF = $gen['heatIndexF'];
+    echo "<br>".$heatIndexF;
   }
 
 }
@@ -27,14 +47,33 @@ if (!is_null($events['events'])) {
 
       $text = $event['message']['text'];
 
-      if($text == "สวัสดี")
+      if($text == "ความชื้น")
       {
-        $text = $texts;
-
+        $text = $Humidity;
+      }
+      elseif ($text == "tempC") 
+      {
+        $text = $tempC;
+      }
+      elseif ($text == "tempF") 
+      {
+        $text = $tempF;
+      }
+      elseif ($text == "IndexC") 
+      {
+        $text = $heatIndexC;
+      }
+       elseif ($text == "IndexF") 
+      {
+        $text = $heatIndexF;
       }
       else if($text == "ใครสร้างอุ๋งๆ")
       {
         $text ="อุ๋งๆ ถูกสร้างโดย mr.mach ค่ะ";
+      }
+      else
+      {
+        $text = "ขอเวลาเรียนรู้ก่อนนะค่ะ";
       }
       $replyToken = $event['replyToken'];
       $messages = [
