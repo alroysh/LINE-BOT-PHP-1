@@ -5,18 +5,12 @@ $access_token = '3YxSOfQKva9QC3/swCvMwJwJkdnmbiENnLvM5Qf1tF78RW2z5MZGrNnvH+CapO9
 $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 
-if(isset($events))
+$database = file_get_contents('http://949b3eea.ngrok.io/code/node/changdatatojsongraph.php');
+$gen = json_decode($database, true);
+
+if(isset($gen))
 {
-  print_r($events); 
-}
-
-
-$contents = file_get_contents('http://949b3eea.ngrok.io/code/node/changdatatojsongraph.php');
-$results = json_decode($contents, true);
-
-if(isset($results))
-{
-  print_r($results); 
+  print_r($gen); 
 }
 
 if (!is_null($events['events'])) {
