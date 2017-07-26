@@ -11,30 +11,33 @@ $gen = json_decode($database, true);
 if(isset($gen))
 {
   print_r($gen); 
-  if($gen['humidity'] > 0)
+  foreach ($gen as $gens)
   {
-    $Humidity = $gen['humidity'];
-    echo "<br>".$Humidity;
-  }
-  else if($gen['tempC'] > 0)
-  {
-    $tempC = $gen['tempC'];
-    echo "<br>".$tempC;
-  }
-  else if($gen['tempF'] > 0)
-  {
-    $tempF = $gen['tempF'];
-    echo "<br>".$tempF;
-  }
-  else if($gen['heatIndexC'] > 0)
-  {
-    $heatIndexC = $gen['heatIndexC'];
-    echo "<br>".$heatIndexC;
-  }
-  else if($gen['heatIndexF'] > 0)
-  {
-    $heatIndexF = $gen['heatIndexF'];
-    echo "<br>".$heatIndexF;
+    if($gens['humidity'] > 0)
+    {
+      $Humidity = $gens['humidity'];
+      echo "<br>".$Humidity;
+    }
+    else if($gens['tempC'] > 0)
+    {
+      $tempC = $gens['tempC'];
+      echo "<br>".$tempC;
+    }
+    else if($gens['tempF'] > 0)
+    {
+      $tempF = $gens['tempF'];
+      echo "<br>".$tempF;
+    }
+    else if($gens['heatIndexC'] > 0)
+    {
+      $heatIndexC = $gens['heatIndexC'];
+      echo "<br>".$heatIndexC;
+    }
+    else if($gens['heatIndexF'] > 0)
+    {
+      $heatIndexF = $gens['heatIndexF'];
+      echo "<br>".$heatIndexF;
+    }
   }
 
 }
