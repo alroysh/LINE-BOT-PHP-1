@@ -12,7 +12,7 @@ if (!is_null($datas['id'])) {
 
     //print_r($datas); 
     foreach ($datas as $type => $value) {
-        echo "$type => $value\n";
+        //echo "$type => $value\n";
         if($type == 'id'){
           $id = $value;
           //echo "$id\n";
@@ -54,7 +54,7 @@ if (!is_null($events['events'])) {
 
       if($text == "ความชื้น")
       {
-        $text = $Humidity;
+        $text = $humidity;
       }
       elseif ($text == "tempC") 
       {
