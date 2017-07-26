@@ -6,40 +6,42 @@ $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 
 $database = file_get_contents('http://949b3eea.ngrok.io/code/node/jsontoline.php');
-$gen = json_decode($database, true);
+$datas = json_decode($database, true);
 
-if(isset($gen))
-{
-  print_r($gen); 
-  foreach ($gen as $gens)
-  {
-    if($gens['humidity'] > 0)
-    {
-      $Humidity = $gens['humidity'];
-      echo "<br>".$Humidity;
-    }
-    else if($gens['tempC'] > 0)
-    {
-      $tempC = $gens['tempC'];
-      echo "<br>".$tempC;
-    }
-    else if($gens['tempF'] > 0)
-    {
-      $tempF = $gens['tempF'];
-      echo "<br>".$tempF;
-    }
-    else if($gens['heatIndexC'] > 0)
-    {
-      $heatIndexC = $gens['heatIndexC'];
-      echo "<br>".$heatIndexC;
-    }
-    else if($gens['heatIndexF'] > 0)
-    {
-      $heatIndexF = $gens['heatIndexF'];
-      echo "<br>".$heatIndexF;
-    }
-  }
+if (!is_null($datas['id'])) {
 
+    print_r($datas); 
+    foreach ($datas as $type => $value) {
+        echo "$type => $value\n";
+        if($type == 'id'){
+          $id = $value;
+          echo "$id\n";
+        }
+        elseif($type == 'humidity'){
+          $humidity = $value;
+          echo "$humidity\n";
+        }
+        elseif($type == 'tempC') {
+          $tempC = $value;
+          echo "$tempC\n";
+        }
+        elseif($type == 'tempF') {
+          $tempF = $value;
+          echo "$tempF\n";
+        }
+        elseif($type == 'heatIndexC') {
+          $heatIndexC = $value;
+          echo "$heatIndexC\n";
+        }
+        elseif($type == 'heatIndexF') {
+          $heatIndexF = $value;
+          echo "$heatIndexF\n";
+        }
+        elseif($type == 'datetime') {
+          $datetime = $value;
+          echo "$datetime\n";
+        } 
+    }  
 }
 
 if (!is_null($events['events'])) {
