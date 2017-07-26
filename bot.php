@@ -68,9 +68,13 @@ if (!is_null($events['events'])) {
       {
         $text = $heatIndexC;
       }
-       elseif ($text == "IndexF") 
+      elseif ($text == "IndexF") 
       {
         $text = $heatIndexF;
+      }
+      elseif ($text == "datetime") 
+      {
+        $text = $datetime;
       }
       else if($text == "ใครสร้างอุ๋งๆ")
       {
