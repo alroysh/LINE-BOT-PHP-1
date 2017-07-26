@@ -10,7 +10,13 @@ $gen = json_decode($database, true);
 
 if(isset($gen))
 {
-  print_r($gen); 
+  //print_r($gen); 
+  if($gen['id'] == 1)
+  {
+    $texts = 1;
+    echo $texts;
+  }
+
 }
 
 if (!is_null($events['events'])) {
@@ -23,7 +29,8 @@ if (!is_null($events['events'])) {
 
       if($text == "สวัสดี")
       {
-        $text = "อิอิ";
+        $text = $texts;
+
       }
       else if($text == "ใครสร้างอุ๋งๆ")
       {
