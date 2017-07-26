@@ -11,9 +11,9 @@ $gen = json_decode($database, true);
 if(isset($gen))
 {
   //print_r($gen); 
-  if($gen['id'] == 1)
+  if($gen['id'] > 0)
   {
-    $texts = 1;
+    $texts = $gen['id'];
     echo $texts;
   }
 
