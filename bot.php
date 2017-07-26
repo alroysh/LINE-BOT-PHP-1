@@ -10,7 +10,7 @@ $datas = json_decode($database, true);
 
 if (!is_null($datas['id'])) {
 
-    print_r($datas); 
+    //print_r($datas); 
     foreach ($datas as $type => $value) {
         echo "$type => $value\n";
         if($type == 'id'){
