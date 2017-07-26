@@ -15,31 +15,31 @@ if (!is_null($datas['id'])) {
         echo "$type => $value\n";
         if($type == 'id'){
           $id = $value;
-          echo "$id\n";
+          //echo "$id\n";
         }
         elseif($type == 'humidity'){
           $humidity = $value;
-          echo "$humidity\n";
+          //echo "$humidity\n";
         }
         elseif($type == 'tempC') {
           $tempC = $value;
-          echo "$tempC\n";
+         // echo "$tempC\n";
         }
         elseif($type == 'tempF') {
           $tempF = $value;
-          echo "$tempF\n";
+          //echo "$tempF\n";
         }
         elseif($type == 'heatIndexC') {
           $heatIndexC = $value;
-          echo "$heatIndexC\n";
+          //echo "$heatIndexC\n";
         }
         elseif($type == 'heatIndexF') {
           $heatIndexF = $value;
-          echo "$heatIndexF\n";
+          //echo "$heatIndexF\n";
         }
         elseif($type == 'datetime') {
           $datetime = $value;
-          echo "$datetime\n";
+          //echo "$datetime\n";
         } 
     }  
 }
