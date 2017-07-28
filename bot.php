@@ -13,7 +13,7 @@ $datas = json_decode($database, true);
 
 
 ////// Call Name LINE
-function getname($name,$access_token,$userId){
+function getname($access_token,$userId){
 
   $url = 'https://api.line.me/v2/bot/profile/'.$userId;
 
@@ -28,7 +28,7 @@ function getname($name,$access_token,$userId){
 
   return $result;
 }
-$result = getname($name,$access_token,$userId);
+$result = getname($access_token,$userId);
 
 $json = json_decode($result,TRUE); // call to return getname();
 
