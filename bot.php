@@ -1,7 +1,7 @@
 <?php
 $access_token = '3YxSOfQKva9QC3/swCvMwJwJkdnmbiENnLvM5Qf1tF78RW2z5MZGrNnvH+CapO9xmv9uYCdUUpYuo/MtK5hyYYTlIBVfBxBzhRxMFQwSjb/EqYvnqU2ZkJt2r3n/2+fcLspZqwyf0TJ7EdYGr8TwwAdB04t89/1O/w1cDnyilFU=';
 
-$userId ='U00e6d214ca004d0cc011f7924abd6a13';
+//$userId ='U00e6d214ca004d0cc011f7924abd6a13';
 
 ////// Call LINE Reply
 $content = file_get_contents('php://input');
