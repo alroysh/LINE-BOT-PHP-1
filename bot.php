@@ -15,31 +15,31 @@ if (!is_null($datas['id'])) {
         //echo "$type => $value\n";
         if($type == 'id'){
           $id = $value;
-          //echo "$id\n";
+        
         }
         elseif($type == 'humidity'){
           $humidity = $value;
-          //echo "$humidity\n";
+          
         }
         elseif($type == 'tempC') {
           $tempC = $value;
-         // echo "$tempC\n";
+        
         }
         elseif($type == 'tempF') {
           $tempF = $value;
-          //echo "$tempF\n";
+          
         }
         elseif($type == 'heatIndexC') {
           $heatIndexC = $value;
-          //echo "$heatIndexC\n";
+         
         }
         elseif($type == 'heatIndexF') {
           $heatIndexF = $value;
-          //echo "$heatIndexF\n";
+          
         }
         elseif($type == 'datetime') {
           $datetime = $value;
-          //echo "$datetime\n";
+          
         } 
     }  
 }
@@ -51,39 +51,36 @@ if (!is_null($events['events'])) {
     if ($event['type'] == 'message' && $event['message']['type'] == 'text'){
 
       $text = $event['message']['text'];
+      $name = $event['message']['source']['userId'];
 
-      if($text == "ความชื้น")
-      {
+      if ($text == "สวัสดี"){
+        $text = $text."คุณ".$name;
+      }
+      elseif($text == "ความชื้น"){
         $text = $humidity;
       }
-      elseif ($text == "tempC") 
-      {
+      elseif ($text == "tempC"){
         $text = $tempC;
       }
-      elseif ($text == "tempF") 
-      {
+      elseif ($text == "tempF"){
         $text = $tempF;
       }
-      elseif ($text == "IndexC") 
-      {
+      elseif ($text == "IndexC"){
         $text = $heatIndexC;
       }
-      elseif ($text == "IndexF") 
-      {
+      elseif ($text == "IndexF"){
         $text = $heatIndexF;
       }
-      elseif ($text == "datetime") 
-      {
+      elseif ($text == "datetime") {
         $text = $datetime;
       }
-      else if($text == "ใครสร้างอุ๋งๆ")
-      {
+      else if($text == "ใครสร้างอุ๋งๆ"){
         $text ="อุ๋งๆ ถูกสร้างโดย mr.mach ค่ะ";
       }
-      else
-      {
+      else{
         $text = "ขอเวลาเรียนรู้ก่อนนะค่ะ";
       }
+
       $replyToken = $event['replyToken'];
       $messages = [
         'type' => 'text',
