@@ -45,19 +45,32 @@ if (!is_null($datas['id']))
 
     foreach ($datas as $type => $value) 
     {
-        if($type == 'id'){
+        if($type == 'id')
+        {
           $id = $value;
-        }elseif($type == 'humidity'){
+        }
+        elseif($type == 'humidity')
+        {
           $humidity = $value;
-        }elseif($type == 'tempC'){
+        }
+        elseif($type == 'tempC')
+        {
           $tempC = $value;
-        }elseif($type == 'tempF'){
+        }
+        elseif($type == 'tempF')
+        {
           $tempF = $value;  
-        }elseif($type == 'heatIndexC'){
+        }
+        elseif($type == 'heatIndexC')
+        {
           $heatIndexC = $value;
-        }elseif($type == 'heatIndexF'){
+        }
+        elseif($type == 'heatIndexF')
+        {
           $heatIndexF = $value;     
-        }elseif($type == 'datetime'){
+        }
+        elseif($type == 'datetime')
+        {
           $datetime = $value;      
         } 
     }  
