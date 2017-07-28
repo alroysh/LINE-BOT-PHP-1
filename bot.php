@@ -41,10 +41,13 @@ if (!is_null($events['events'])) {
 
   foreach ($events['events'] as $event) {
 
-    if ($event['type'] == 'message' && $event['message']['type'] == 'text'){
+      if (isset($event['displayName'])) {
+        $name = $event['displayName'];
+      }
+      elseif ($event['type'] == 'message' && $event['message']['type'] == 'text'){
 
       $text = $event['message']['text'];
-      $name = $event['displayName'];
+      ///$name = $event['displayName'];
 
       if ($text == "สวัสดี" or $text == "สวัสดีอุ๋งๆ"){
         $text = $text."คุณ".$name."\nมีอะไรให้รับใช้หรอค่ะ :) \n สอบถามสภาพอากาศ \n - อุณหภูมิ \n - ความชิ้น";
