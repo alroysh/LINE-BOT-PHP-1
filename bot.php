@@ -49,7 +49,7 @@ if (!is_null($events['events'])) {
       if ($text == "สวัสดี" or $text == "สวัสดีอุ๋งๆ"){
         $text = $text."คุณ".$name."มีอะไรให้รับใช้หรอค่ะ :) \n สอบถามสภาพอากาศ \n อุณหภูมิ \n ความชิ้น";
       }elseif($text == "ความชื้น"){
-        $text = $humidity;
+        $text = "ความชื้นตอนนี้จะอยู่ที่ ".$humidity." ค่ะ";
       }elseif ($text == "อุณหภูมิ"){
         $text = "อุณหภูมิ ตอนนี้จะอยู่ที่ ".$tempC." C ค่ะ และ ".$tempF." F ค่ะ";
       }elseif ($text == "tempF"){
