@@ -51,8 +51,7 @@ if (!is_null($events['events'])) {
       }elseif($text == "ความชื้น"){
         $text = $humidity;
       }elseif ($text == "อุณหภูมิ"){
-        $text = "อุณหภูมิ ตอนนี้จะอยู่ที่".$tempC."C ค่ะ และ".$tempF."F ค่ะ";
-        //$text = $tempC;
+        $text = "อุณหภูมิ ตอนนี้จะอยู่ที่ ".$tempC." C ค่ะ และ ".$tempF." F ค่ะ";
       }elseif ($text == "tempF"){
         $text = $tempF;
       }elseif ($text == "IndexC"){
