@@ -54,7 +54,8 @@ if (!is_null($events['events'])) {
       $name = $event['source']['userId'];
 
       if ($text == "สวัสดี"){
-        $text = $text."คุณ".$name;
+        $text = $text."คุณ".$name."มีอะไรให้รับใช้หรอค่ะ :)
+        \n สอบถามสภาพอากาศ \n อุณห๓ูมิ \n ความชิ้น";
       }
       elseif($text == "ความชื้น"){
         $text = $humidity;
