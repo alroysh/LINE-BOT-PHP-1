@@ -9,7 +9,7 @@ $database = file_get_contents('https://4c3012f4.ngrok.io/code/node/jsontoline.ph
 $datas = json_decode($database, true);  // Call DataBase
 
 
-/*function CallLineGetName($access_token,$userId)
+function CallLineGetName($access_token,$userId)
 {
 
   $url = 'https://api.line.me/v2/bot/profile/'.$userId;
@@ -23,7 +23,7 @@ $datas = json_decode($database, true);  // Call DataBase
   return $result;
 }
 
-$result = getname($access_token,$userId);
+$result = CallLineGetName($access_token,$userId);
 $json = json_decode($result,TRUE); // CallLineGetName();
 
 if(!is_null($json['displayName']))
@@ -37,7 +37,7 @@ if(!is_null($json['displayName']))
      }
   }
 }
-*/
+
 
 // Call DataBase
 if (!is_null($datas['id'])) 
