@@ -12,7 +12,11 @@ $datas = json_decode($database, true);
 ////// Call Name LINE
 function getname($name,$access_token){
 
-  $url = 'https://api.line.me/v2/bot/profile/U00e6d214ca004d0cc011f7924abd6a13';
+  $userId ='U00e6d214ca004d0cc011f7924abd6a13'
+  
+  $url = 'https://api.line.me/v2/bot/profile/';
+
+  $url += $userId;
 
   $headers = array('Authorization: Bearer ' . $access_token);
 
