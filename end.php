@@ -7,7 +7,6 @@
 
     $headers = array('Authorization: Bearer ' . $access_token);
 
-
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
@@ -19,16 +18,18 @@
   }
 
   $result = getname($name,$access_token);
-
   $json = json_decode($result,TRUE);
-  //print_r($result);
 
   if(!is_null($json['displayName'])){
 
     foreach ($json as $type => $value) 
     {
 
-        echo "\$datas[$type] => $value.\n";
+       if($type == 'displayName')
+        {
+          $name = $value;
+          echo "$name\n";
+        }
     }
 
   }
