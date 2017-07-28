@@ -40,41 +40,50 @@ if(!is_null($json['displayName']))
 
 
 // Call DataBase
-if (!is_null($datas['id'])) 
-{
+ if (!is_null($datas['id'])) 
+    {
+    print_r($datas); 
 
     foreach ($datas as $type => $value) 
     {
+        echo "$type => $value\n";
         if($type == 'id')
         {
           $id = $value;
+          echo "$id\n";
         }
         elseif($type == 'humidity')
         {
           $humidity = $value;
+          echo "$humidity\n";
         }
-        elseif($type == 'tempC')
+        elseif($type == 'tempC') 
         {
           $tempC = $value;
+          echo "$tempC\n";
         }
-        elseif($type == 'tempF')
+        elseif($type == 'tempF') 
         {
-          $tempF = $value;  
+          $tempF = $value;
+          echo "$tempF\n";
         }
-        elseif($type == 'heatIndexC')
+        elseif($type == 'heatIndexC') 
         {
           $heatIndexC = $value;
+          echo "$heatIndexC\n";
         }
-        elseif($type == 'heatIndexF')
+        elseif($type == 'heatIndexF') 
         {
-          $heatIndexF = $value;     
+          $heatIndexF = $value;
+          echo "$heatIndexF\n";
         }
-        elseif($type == 'datetime')
+        elseif($type == 'datetime') 
         {
-          $datetime = $value;      
-        } 
-    }  
-}
+          $datetime = $value;
+          echo "$datetime\n";
+        }   
+    } 
+  }
 
 // Call events line
 if (!is_null($events['events'])) 
