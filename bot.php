@@ -1,7 +1,7 @@
 <?php
 $access_token = '3YxSOfQKva9QC3/swCvMwJwJkdnmbiENnLvM5Qf1tF78RW2z5MZGrNnvH+CapO9xmv9uYCdUUpYuo/MtK5hyYYTlIBVfBxBzhRxMFQwSjb/EqYvnqU2ZkJt2r3n/2+fcLspZqwyf0TJ7EdYGr8TwwAdB04t89/1O/w1cDnyilFU=';
 
-//$userId ='U00e6d214ca004d0cc011f7924abd6a13';
+$userId ='U00e6d214ca004d0cc011f7924abd6a13';
 
 ////// Call LINE Reply
 $content = file_get_contents('php://input');
@@ -11,17 +11,6 @@ $events = json_decode($content, true);
 $database = file_get_contents('https://4c3012f4.ngrok.io/code/node/jsontoline.php');
 $datas = json_decode($database, true);
 
-
-if (!is_null($events['events'])) {
-
-  foreach ($events['events'] as $event) {
-
-    if ($event['type'] == 'message' && $event['message']['type'] == 'text'){
-
-        $userId = $event['message']['source']['userId'];
-      }
-    }
-  }
 
 ////// Call Name LINE
 function getname($name,$access_token,$userId){
@@ -82,7 +71,7 @@ if (!is_null($events['events'])) {
     if ($event['type'] == 'message' && $event['message']['type'] == 'text'){
 
       $text = $event['message']['text'];
-      $userId = $event['message']['source']['userId'];
+    
 
       if ($text == "สวัสดี" or $text == "สวัสดีอุ๋งๆ"){
         $text = $text."คุณ ".$name."\nมีอะไรให้รับใช้หรอค่ะ :) \n สอบถามสภาพอากาศ \n - อุณหภูมิ \n - ความชิ้น";
