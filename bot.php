@@ -2,9 +2,9 @@
 $access_token = '3YxSOfQKva9QC3/swCvMwJwJkdnmbiENnLvM5Qf1tF78RW2z5MZGrNnvH+CapO9xmv9uYCdUUpYuo/MtK5hyYYTlIBVfBxBzhRxMFQwSjb/EqYvnqU2ZkJt2r3n/2+fcLspZqwyf0TJ7EdYGr8TwwAdB04t89/1O/w1cDnyilFU=';
 $userId ='U00e6d214ca004d0cc011f7924abd6a13';
 
-$content = file_get_contents('php://input'); // Call LINE
-$database = file_get_contents('https://5ede1b70.ngrok.io/code/node/jsontoline.php'); // Call DataBase
-$events = json_decode($content, true); //  Call LINE
+$content = file_get_contents('php://input');//  Call LINE
+$events = json_decode($content, true); // Call LINE
+$database = file_get_contents('https://4c3012f4.ngrok.io/code/node/jsontoline.php'); // Call DataBase
 $datas = json_decode($database, true);  // Call DataBase
 
 
@@ -41,6 +41,7 @@ if(!is_null($json['displayName']))
 // Call DataBase
 if (!is_null($datas['id'])) 
 {
+
     foreach ($datas as $type => $value) 
     {
         if($type == 'id'){
