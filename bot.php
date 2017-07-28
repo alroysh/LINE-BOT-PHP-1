@@ -8,7 +8,8 @@ $events = json_decode($content, true); //  Call LINE
 $datas = json_decode($database, true);  // Call DataBase
 
 
-function CallLineGetName($access_token,$userId){
+function CallLineGetName($access_token,$userId)
+{
 
   $url = 'https://api.line.me/v2/bot/profile/'.$userId;
   $headers = array('Authorization: Bearer ' .$access_token);
