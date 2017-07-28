@@ -41,7 +41,7 @@ if (!is_null($events['events'])) {
 
   foreach ($events['events'] as $event) {
 
-      if (isset($event['displayName'])) {
+      if (!is_null($event['displayName'])) {
         $name = $event['displayName'];
       }
       elseif ($event['type'] == 'message' && $event['message']['type'] == 'text'){
