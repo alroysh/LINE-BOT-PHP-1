@@ -19,6 +19,7 @@
 
   $result = getname($name,$access_token);
   $json = json_decode($result,TRUE);
+  print_r($json);
 
   if(!is_null($json['displayName'])){
 
@@ -26,7 +27,11 @@
 
        if($type == 'displayName'){
           $name = $value;
-          //echo "$name\n";
+          echo "$name\n";
+        }
+        elseif ($type == 'userId') {
+          $userId = $value;
+          echo "$userId\n";
         }
     }
 

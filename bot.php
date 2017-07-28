@@ -1,6 +1,8 @@
 <?php
 $access_token = '3YxSOfQKva9QC3/swCvMwJwJkdnmbiENnLvM5Qf1tF78RW2z5MZGrNnvH+CapO9xmv9uYCdUUpYuo/MtK5hyYYTlIBVfBxBzhRxMFQwSjb/EqYvnqU2ZkJt2r3n/2+fcLspZqwyf0TJ7EdYGr8TwwAdB04t89/1O/w1cDnyilFU=';
 
+$userId ='U00e6d214ca004d0cc011f7924abd6a13';
+
 ////// Call LINE Reply
 $content = file_get_contents('php://input');
 $events = json_decode($content, true);
@@ -10,15 +12,11 @@ $database = file_get_contents('https://4c3012f4.ngrok.io/code/node/jsontoline.ph
 $datas = json_decode($database, true);
 
 ////// Call Name LINE
-function getname($name,$access_token){
+function getname($name,$access_token,$userId){
 
-  $userId ='U00e6d214ca004d0cc011f7924abd6a13'
+  $url = 'https://api.line.me/v2/bot/profile/'.$userId;
 
-  $url = 'https://api.line.me/v2/bot/profile/<?=$userId;?>';
-
-  
-
-  $headers = array('Authorization: Bearer ' . $access_token);
+  $headers = array('Authorization: Bearer ' .$access_token);
 
   $ch = curl_init($url);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -29,7 +27,7 @@ function getname($name,$access_token){
 
   return $result;
 }
-$result = getname($name,$access_token);
+$result = getname($name,$access_token,$userId);
 $json = json_decode($result,TRUE);
 
 if(!is_null($json['displayName'])){
@@ -38,6 +36,9 @@ if(!is_null($json['displayName'])){
 
      if($type == 'displayName'){
         $name = $value;
+    }
+    elseif ($type =='userId') {
+       $userId = $value;
     }
   }
 }
@@ -71,7 +72,8 @@ if (!is_null($events['events'])) {
     if ($event['type'] == 'message' && $event['message']['type'] == 'text'){
 
       $text = $event['message']['text'];
-      
+      $userId = $event['message']['source']['userId'];
+
       if ($text == "สวัสดี" or $text == "สวัสดีอุ๋งๆ"){
         $text = $text."คุณ ".$name."\nมีอะไรให้รับใช้หรอค่ะ :) \n สอบถามสภาพอากาศ \n - อุณหภูมิ \n - ความชิ้น";
       }elseif($text == "ความชื้น"){
