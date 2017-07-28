@@ -44,7 +44,7 @@ if (!is_null($datas['id']))
 {
     foreach ($datas as $type => $value) 
     {
-        echo "$type => $value\n";
+        
         if($type == 'id')
         {
           $id = $value;
