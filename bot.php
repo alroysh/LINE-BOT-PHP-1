@@ -41,10 +41,10 @@ if (!is_null($events['events'])) {
 
   foreach ($events['events'] as $event) {
 
-      if ($event['type'] == 'message' && $event['message']['type'] == 'text'){
+    if ($event['type'] == 'message' && $event['message']['type'] == 'text'){
 
       $text = $event['message']['text'];
-      $name ="mach";
+      $name = $event['source']['userId']['displayName'];
 
       if ($text == "สวัสดี" or $text == "สวัสดีอุ๋งๆ"){
         $text = $text."คุณ".$name."\nมีอะไรให้รับใช้หรอค่ะ :) \n สอบถามสภาพอากาศ \n - อุณหภูมิ \n - ความชิ้น";
@@ -89,7 +89,6 @@ if (!is_null($events['events'])) {
       ];
     
     }
-    
      // Make a POST Request to Messaging API to reply to sender
       $url = 'https://api.line.me/v2/bot/message/reply';
       $data = [
@@ -108,8 +107,7 @@ if (!is_null($events['events'])) {
       $result = curl_exec($ch);
       curl_close($ch);
 
-      echo $result . "\r\n"; 
-    }
+      echo $result . "\r\n";
   }
 
 }
