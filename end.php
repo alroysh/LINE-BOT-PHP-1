@@ -20,7 +20,7 @@
 
   $result = getname($name,$access_token);
 
-  $json = json_decode($result);
+  $json = json_decode($result,TRUE);
   //print_r($result);
 
   if(!is_null($json['displayName'])){
