@@ -1,12 +1,20 @@
 <?php
 $access_token = '3YxSOfQKva9QC3/swCvMwJwJkdnmbiENnLvM5Qf1tF78RW2z5MZGrNnvH+CapO9xmv9uYCdUUpYuo/MtK5hyYYTlIBVfBxBzhRxMFQwSjb/EqYvnqU2ZkJt2r3n/2+fcLspZqwyf0TJ7EdYGr8TwwAdB04t89/1O/w1cDnyilFU=';
 
-function getname($name,$access_token)
-{
+////// Call LINE Reply
+$content = file_get_contents('php://input');
+$events = json_decode($content, true);
+
+////// Call data DB
+$database = file_get_contents('https://4c3012f4.ngrok.io/code/node/jsontoline.php');
+$datas = json_decode($database, true);
+
+////// Call Name LINE
+function getname($name,$access_token){
+
   $url = 'https://api.line.me/v2/bot/profile/U00e6d214ca004d0cc011f7924abd6a13';
 
   $headers = array('Authorization: Bearer ' . $access_token);
-
 
   $ch = curl_init($url);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -17,47 +25,40 @@ function getname($name,$access_token)
 
   return $result;
 }
-
-
 $result = getname($name,$access_token);
-echo $result;
+$json = json_decode($result,TRUE);
 
+if(!is_null($json['displayName'])){
 
-$content = file_get_contents('php://input');
-$events = json_decode($content, true);
+  foreach ($json as $type => $value){
 
-$database = file_get_contents('https://4c3012f4.ngrok.io/code/node/jsontoline.php');
-$datas = json_decode($database, true);
-
+     if($type == 'displayName'){
+        $name = $value;
+    }
+  }
+}
+////// call data DB
 if (!is_null($datas['id'])) {
 
-    //print_r($datas); 
     foreach ($datas as $type => $value) {
-        //echo "$type => $value\n";
+  
         if($type == 'id'){
           $id = $value;
         }elseif($type == 'humidity'){
           $humidity = $value;
-          
-        }elseif($type == 'tempC') {
+        }elseif($type == 'tempC'){
           $tempC = $value;
-        
-        }elseif($type == 'tempF') {
-          $tempF = $value;
-          
-        }elseif($type == 'heatIndexC') {
+        }elseif($type == 'tempF'){
+          $tempF = $value;  
+        }elseif($type == 'heatIndexC'){
           $heatIndexC = $value;
-         
-        }elseif($type == 'heatIndexF') {
-          $heatIndexF = $value;
-          
-        }elseif($type == 'datetime') {
-          $datetime = $value;
-          
+        }elseif($type == 'heatIndexF'){
+          $heatIndexF = $value;     
+        }elseif($type == 'datetime'){
+          $datetime = $value;      
         } 
     }  
 }
-
 if (!is_null($events['events'])) {
 
   foreach ($events['events'] as $event) {
@@ -65,8 +66,7 @@ if (!is_null($events['events'])) {
     if ($event['type'] == 'message' && $event['message']['type'] == 'text'){
 
       $text = $event['message']['text'];
-      $name = $event['source']['userId']['displayName'];
-
+      
       if ($text == "สวัสดี" or $text == "สวัสดีอุ๋งๆ"){
         $text = $text."คุณ".$name."\nมีอะไรให้รับใช้หรอค่ะ :) \n สอบถามสภาพอากาศ \n - อุณหภูมิ \n - ความชิ้น";
       }elseif($text == "ความชื้น"){

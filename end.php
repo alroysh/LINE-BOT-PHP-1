@@ -1,8 +1,8 @@
 <?php
   $access_token = '3YxSOfQKva9QC3/swCvMwJwJkdnmbiENnLvM5Qf1tF78RW2z5MZGrNnvH+CapO9xmv9uYCdUUpYuo/MtK5hyYYTlIBVfBxBzhRxMFQwSjb/EqYvnqU2ZkJt2r3n/2+fcLspZqwyf0TJ7EdYGr8TwwAdB04t89/1O/w1cDnyilFU=';
 
-  function getname($name,$access_token)
-  {
+  function getname($name,$access_token){
+
     $url = 'https://api.line.me/v2/bot/profile/U00e6d214ca004d0cc011f7924abd6a13';
 
     $headers = array('Authorization: Bearer ' . $access_token);
@@ -22,13 +22,11 @@
 
   if(!is_null($json['displayName'])){
 
-    foreach ($json as $type => $value) 
-    {
+    foreach ($json as $type => $value){
 
-       if($type == 'displayName')
-        {
+       if($type == 'displayName'){
           $name = $value;
-          echo "$name\n";
+          //echo "$name\n";
         }
     }
 
