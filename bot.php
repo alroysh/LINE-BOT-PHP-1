@@ -51,7 +51,9 @@ if (!is_null($events['events'])) {
       }elseif($text == "ความชื้น"){
         $text = "ความชื้นตอนนี้จะอยู่ที่ ".$humidity." ค่ะ";
       }elseif ($text == "อุณหภูมิ"){
-        $text = "อุณหภูมิ ตอนนี้จะอยู่ที่ ".$tempC." (°C) ค่ะ และ ".$tempF." (°F) ค่ะ\n - ค่าเฉลี่ยจะอยู่ที่ ".$heatIndexC."(°C) ค่ะ และ ".$heatIndexF." (°F) ค่ะ";
+        $text = "อุณหภูมิ ตอนนี้จะอยู่ที่ ".$tempC." (°C) ค่ะ และ ".$tempF." (°F) ค่ะ\n - ค่าเฉลี่ยจะอยู่ที่ ".$heatIndexC." (°C) ค่ะ และ ".$heatIndexF." (°F) ค่ะ\n อับเดจล่าสุดเมื่อวันที่ ".$datetime." ค่ะ";
+      }elseif ($text == "tempC"){
+        $text = $tempC;
       }elseif ($text == "tempF"){
         $text = $tempF;
       }elseif ($text == "IndexC"){
