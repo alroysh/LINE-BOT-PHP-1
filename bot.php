@@ -13,12 +13,12 @@ function CallLineGetName($access_token,$userId)
 
   $url = 'https://api.line.me/v2/bot/profile/'.$userId;
   $headers = array('Authorization: Bearer ' .$access_token);
-  $call = curl_init($url);
-  curl_setopt($call, CURLOPT_RETURNTRANSFER, true);
-  curl_setopt($call, CURLOPT_HTTPHEADER, $headers);
-  curl_setopt($call, CURLOPT_FOLLOWLOCATION, 1);
-  $result = curl_exec($call);
-  curl_close($call);
+  $ch = curl_init($url);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+  $result = curl_exec($ch);
+  curl_close($ch);
   return $result;
 }
 
@@ -70,25 +70,38 @@ if (!is_null($events['events']))
     if ($event['type'] == 'message' && $event['message']['type'] == 'text')
     {
         $text = $event['message']['text'];
-        if ($text == "สวัสดี" or $text == "สวัสดีอุ๋งๆ"){
+
+        if ($text == "สวัสดี" or $text == "สวัสดีอุ๋งๆ")
+        {
           $text = $text."คุณ ".$name."\nมีอะไรให้รับใช้หรอค่ะ :) \n สอบถามสภาพอากาศ \n - อุณหภูมิ \n - ความชิ้น";
-        }elseif($text == "ความชื้น"){
+        }
+        elseif($text == "ความชื้น")
+        {
           $text = "ความชื้นตอนนี้จะอยู่ที่ ".$humidity." ค่ะ";
-        }elseif ($text == "อุณหภูมิ"){
+        }
+        elseif ($text == "อุณหภูมิ")
+        {
           $text = "อุณหภูมิ ตอนนี้จะอยู่ที่ ".$tempC." (°C) ค่ะ และ ".$tempF." (°F) ค่ะ\n - ค่าเฉลี่ยจะอยู่ที่ ".$heatIndexC." (°C) ค่ะ และ ".$heatIndexF." (°F) ค่ะ\n อับเดจล่าสุดเมื่อวันที่ ".$datetime." ค่ะ";
-        }elseif ($text == "tempC"){
+        }
+        elseif ($text == "tempC"){
           $text = $tempC;
-        }elseif ($text == "tempF"){
+        }
+        elseif ($text == "tempF"){
           $text = $tempF;
-        }elseif ($text == "IndexC"){
+        }
+        elseif ($text == "IndexC"){
           $text = $heatIndexC;
-        }elseif ($text == "IndexF"){
+        }
+        elseif ($text == "IndexF"){
           $text = $heatIndexF;
-        }elseif ($text == "datetime") {
+        }
+        elseif ($text == "datetime"){
           $text = $datetime;
-        }else if($text == "ใครสร้างอุ๋งๆ"){
+        }
+        else if($text == "ใครสร้างอุ๋งๆ"){
           $text ="อุ๋งๆ ถูกสร้างโดย mr.mach ค่ะ";
-        }else{
+        }
+        else{
           $text = "ขอเวลาเรียนรู้ก่อนนะค่ะ";
         }
 
