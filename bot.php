@@ -5,7 +5,7 @@ $userId ='U00e6d214ca004d0cc011f7924abd6a13';
 
 $content = file_get_contents('php://input');//  Call LINE
 $events = json_decode($content, true); // Call LINE
-$database = file_get_contents('https://5ede1b70.ngrok.io/code/node/jsontoline.php'); // Call DataBase
+$database = file_get_contents('https://4c3012f4.ngrok.io/code/node/jsontoline.php'); // Call DataBase
 $datas = json_decode($database, true);  // Call DataBase
 
 
@@ -40,48 +40,41 @@ if(!is_null($json['displayName']))
 
 
 // Call DataBase
- if (!is_null($datas['id'])) 
- {
+if (!is_null($datas['id'])) 
+{
     foreach ($datas as $type => $value) 
     {
         echo "$type => $value\n";
         if($type == 'id')
         {
           $id = $value;
-          echo "$id\n";
         }
         elseif($type == 'humidity')
         {
           $humidity = $value;
-          echo "$humidity\n";
         }
         elseif($type == 'tempC') 
         {
           $tempC = $value;
-          echo "$tempC\n";
         }
         elseif($type == 'tempF') 
         {
-          $tempF = $value;
-          echo "$tempF\n";
+          $tempF = $value;          
         }
         elseif($type == 'heatIndexC') 
         {
-          $heatIndexC = $value;
-          echo "$heatIndexC\n";
+          $heatIndexC = $value;         
         }
         elseif($type == 'heatIndexF') 
         {
-          $heatIndexF = $value;
-          echo "$heatIndexF\n";
+          $heatIndexF = $value;        
         }
         elseif($type == 'datetime') 
         {
-          $datetime = $value;
-          echo "$datetime\n";
+          $datetime = $value;       
         }   
     } 
-  }
+}
 
 // Call events line
 if (!is_null($events['events'])) 
