@@ -15,29 +15,22 @@ if (!is_null($datas['id'])) {
         //echo "$type => $value\n";
         if($type == 'id'){
           $id = $value;
-        
-        }
-        elseif($type == 'humidity'){
+        }elseif($type == 'humidity'){
           $humidity = $value;
           
-        }
-        elseif($type == 'tempC') {
+        }elseif($type == 'tempC') {
           $tempC = $value;
         
-        }
-        elseif($type == 'tempF') {
+        }elseif($type == 'tempF') {
           $tempF = $value;
           
-        }
-        elseif($type == 'heatIndexC') {
+        }elseif($type == 'heatIndexC') {
           $heatIndexC = $value;
          
-        }
-        elseif($type == 'heatIndexF') {
+        }elseif($type == 'heatIndexF') {
           $heatIndexF = $value;
           
-        }
-        elseif($type == 'datetime') {
+        }elseif($type == 'datetime') {
           $datetime = $value;
           
         } 
@@ -53,32 +46,24 @@ if (!is_null($events['events'])) {
       $text = $event['message']['text'];
       $name = $event['source']['userId'];
 
-      if ($text == "สวัสดี"){
-        $text = $text."คุณ".$name."มีอะไรให้รับใช้หรอค่ะ :)
-        \n สอบถามสภาพอากาศ \n อุณห๓ูมิ \n ความชิ้น";
-      }
-      elseif($text == "ความชื้น"){
+      if ($text == "สวัสดี" or $text == "สวัสดีอุ๋งๆ"){
+        $text = $text."คุณ".$name."มีอะไรให้รับใช้หรอค่ะ :) \n สอบถามสภาพอากาศ \n อุณหภูมิ \n ความชิ้น";
+      }elseif($text == "ความชื้น"){
         $text = $humidity;
-      }
-      elseif ($text == "tempC"){
+      }elseif ($text == "อุณหภูมิ"){
+        $text = "อุณหภูมิ ตอนนี้จะอยู่ที่".$tempC."C ค่ะ และ".$tempF."F ค่ะ";
         $text = $tempC;
-      }
-      elseif ($text == "tempF"){
+      }elseif ($text == "tempF"){
         $text = $tempF;
-      }
-      elseif ($text == "IndexC"){
+      }elseif ($text == "IndexC"){
         $text = $heatIndexC;
-      }
-      elseif ($text == "IndexF"){
+      }elseif ($text == "IndexF"){
         $text = $heatIndexF;
-      }
-      elseif ($text == "datetime") {
+      }elseif ($text == "datetime") {
         $text = $datetime;
-      }
-      else if($text == "ใครสร้างอุ๋งๆ"){
+      }else if($text == "ใครสร้างอุ๋งๆ"){
         $text ="อุ๋งๆ ถูกสร้างโดย mr.mach ค่ะ";
-      }
-      else{
+      }else{
         $text = "ขอเวลาเรียนรู้ก่อนนะค่ะ";
       }
 
