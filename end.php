@@ -21,12 +21,15 @@
   $result = getname($name,$access_token);
 
   $json = json_decode($result);
-  print_r($result);
+  //print_r($result);
 
-  if(!is_null($result['displayName'])){
+  if(!is_null($json['displayName'])){
 
-    $name = $result['displayName'];
-    echo $name;
+    foreach ($json as $type => $value) 
+    {
+
+        echo "\$datas[$type] => $value.\n";
+    }
 
   }
 
