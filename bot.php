@@ -11,6 +11,18 @@ $events = json_decode($content, true);
 $database = file_get_contents('https://4c3012f4.ngrok.io/code/node/jsontoline.php');
 $datas = json_decode($database, true);
 
+
+if (!is_null($events['events'])) {
+
+  foreach ($events['events'] as $event) {
+
+    if ($event['type'] == 'message' && $event['message']['type'] == 'text'){
+
+        $userId = $event['message']['source']['userId'];
+      }
+    }
+  }
+
 ////// Call Name LINE
 function getname($name,$access_token,$userId){
 
@@ -28,17 +40,15 @@ function getname($name,$access_token,$userId){
   return $result;
 }
 $result = getname($name,$access_token,$userId);
-$json = json_decode($result,TRUE);
+
+$json = json_decode($result,TRUE); // call to return getname();
 
 if(!is_null($json['displayName'])){
 
   foreach ($json as $type => $value){
 
      if($type == 'displayName'){
-        $name = $value;
-    }
-    elseif ($type =='userId') {
-       $userId = $value;
+        $name = $value; // send to name reply text
     }
   }
 }
