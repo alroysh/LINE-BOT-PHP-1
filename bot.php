@@ -51,7 +51,7 @@ if (!is_null($events['events'])) {
     if ($event['type'] == 'message' && $event['message']['type'] == 'text'){
 
       $text = $event['message']['text'];
-      $name = $event['message']['source']['userId'];
+      $name = $event['source']['userId'];
 
       if ($text == "สวัสดี"){
         $text = $text."คุณ".$name;
